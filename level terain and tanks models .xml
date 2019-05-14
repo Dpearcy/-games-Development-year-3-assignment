@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!-- Level Setup -->
+<Level>
+  <!-- Entity Templates -->
+  -<Templates>
+    <!-- Scenery templates-->
+    <EntityTemplate Mesh="Skybox.x" Name="Skybox" Type="Scenery" RanderType="Normal"/>
+    <EntityTemplate Mesh="Floor.x" Name="Floor" Type="Scenery" RanderType="Normal"/>
+    <EntityTemplate Mesh="Building.x" Name="Building" Type="Scenery" RanderType="Normal"/>
+    <EntityTemplate Mesh="Tree1.x" Name="Tree" Type="Scenery" RanderType="Normal"/>
+    <!--Tank Templates-->
+   <EntityTemplate Mesh="HoverTank02.x" Name="Rogue Scout" Type="Tank" RanderType="Normal" MaxSpeed="24.0f" Acceleration="2.2f" TurnSpeed="2.0f"
+                    TurrentTurnSpeed="3.1415f/3" MaxHP="100" ShellDamage="20" MaxShells="10"/>
+    <EntityTemplate Mesh="HoverTank07.x" Name="Oberon MkII" Type="Tank" RanderType="Normal" MaxSpeed="18.0f" Acceleration="1.6f" TurnSpeed="1.3f"
+                   TurrentTurnSpeed="3.1415f/4" MaxHP="120" ShellDamage="35" MaxShells="20"/>
+    <!--Shell Template-->
+  <EntityTemplate Mesh="Bullet.x" Name="Shell Type 1" Type="Projectile" RanderType="Normal"/>
+  </Templates>
+  <!--end of the templates-->
+  <!--level setup-->
+ <Entities>
+     <!-- parts of the scene -->
+    <Entity Name="Floor" Type="Floor"/>
+    <Entity Name="Skybox" Type="Skybox">
+      <Position X="0.0f" Y="-10000.0f" Z="0.0f"/>
+      <Scale X="10" Y="10" Z="10"/>
+    </Entity>
+    <Entity Name="Building" Type="Building">
+      <Position X="0.0f" Y="0.0f" Z="40.0f"/>
+    </Entity>
+      <!-- makeing  -->
+   <Team Name="hunters" TeamColor="Blue" >
+     <Formation Formation="Spear">
+       <!--Team formation postions  To add more tanks to formation use <postion> abouve PartolPosition p.s. place the tank backwards(last tank fist) -->
+       <PositionOfLeader X="-10.0f" Y="0.5f" Z="-10.0f"/>
+       <PositionOfsceond X="-10.0f" Y="0.5f" Z="-10.0f"/>
+       <PositionOfthrid X="-10.0f" Y="0.5f" Z="-10.0f"/>
+       <PositionOffourth X="-10.0f" Y="0.5f" Z="-10.0f"/>
+       <PartolPosition X="-30.0f" Y="0.5f" Z="-20.0f"/>
+       <PartolPosition X="-60.0f" Y="0.5f" Z="-30.0f"/>
+       <PartolPosition X="-120.0f" Y="0.5f" Z="50.0f"/>
+     </Formation>
+     <Entity Name="A-1" Type="Rogue Scout" >
+       <Position X="-10.0f" Y="0.5f" Z="-10.0f"/>
+       <Rotation X="0.0f" Y="0.0f" Z="0.0f"/>
+       <Patrol>
+         <Position X="-30.0f" Y="0.5f" Z="-20.0f"/>
+         <Position X="-60.0f" Y="0.5f" Z="-30.0f"/>
+         <Position X="-120.0f" Y="0.5f" Z="50.0f"/>
+       </Patrol>
+     </Entity>
+     <Entity Name="A-2" Type="Rogue Scout">
+       <Position X="0.0f" Y="0.5f" Z="0.0f"/>
+       <Rotation X="0.0f" Y="0.0f" Z="0.0f"/>
+       <Patrol>
+         <Position X="-50.0f" Y="0.5f" Z="30.0f"/>
+         <Position X="-80.0f" Y="0.5f" Z="40.0f"/>
+         <Position X="-60.0f" Y="0.5f" Z="80.0f"/>
+       </Patrol>
+     </Entity>
+   </Team>
+   <Team Name="Killers" TeamColor="Red" Formation="Sheild">
+     <Entity Name="B-1" Type="Oberon MkII">
+       <Position X="10.0f" Y="0.5f" Z="10.0f"/>
+       <Rotation X="0.0f" Y="180.0f" Z="0.0f"/>
+       <Patrol>
+         <Position X="40.0f" Y="0.5f" Z="20.0f"/>
+         <Position X="80.0f" Y="0.5f" Z="-35.0f"/>
+         <Position X="50.0f" Y="0.5f" Z="-50.0f"/>
+       </Patrol>
+     </Entity>
+     <Entity Name="B-2" Type="Oberon MkII">
+       <Position X="20.0f" Y="0.5f" Z="20.0f"/>
+       <Rotation X="0.0f" Y="180.0f" Z="0.0f"/>
+       <Patrol>
+         <Position X="80.0f" Y="0.5f" Z="40.0f"/>
+         <Position X="150.0f" Y="0.5f" Z="-55.0f"/>
+         <Position X="100.0f" Y="0.5f" Z="-80.0f"/>
+       </Patrol>
+     </Entity>
+   </Team>
+  </Entities>
+</Level>
